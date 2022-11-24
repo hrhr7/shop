@@ -3,42 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        table{
-            border: 1px solid #ccc;
-        }
-        th,td{
-            border: 1px solid #ccc;
-            padding: 2px;
-        }
-        th{
-            background-color:lightskyblue;
-        }
-    </style>
 </head>
 <body>
-<h1>상품 리스트 출력</h1>
-<table>
-    <tr>
-        <th>순번</th>
-        <th>상품명</th>
-        <th>상품설명</th>
-        <th>가격</th>
-        <th>상품등록일</th>
-    </tr>
-<!--타임리프 문법 넣는 자리-->
-    <tr th:each="itemDto,status:${itemDtoList}">
-<!--        <td th:if="${status.even}" th:text="짝수"></td>-->
-<!--        <td th:unlee="${status.even}" th:text="홀수"></td>-->
-        <td th:switch="${status.even}">
-            <span th:case="true">짝수</span>
-            <span th:case="false">홀수</span>
-        </td>
-        <td th:text="${itemDto.getItemName()}"></td>
-        <td th:text="${itemDto.getItemDetail()}"></td>
-        <td th:text="${itemDto.getPrice()}"></td>
-        <td th:text="${itemDto.getRegTime()}"></td>
-    </tr>
-</table>
+  <h1>Thymeleaf 링크 처리 페이지</h1>
+    <div>
+        <a th:href="@{/thymeleaf/ex02}">예제 2번 이동</a>
+    </div>
+    <div>
+        <a th:href="@{https://www.thymeleaf.org}">타임리프 공식 페이지 이동</a>
+    </div>
+    <div>
+        <a th:href="@{/thymeleaf/ex06(param1='입력 파라미터 1',param2='입력 파라미터 2')}">파라미터</a>
+    </div>
 </body>
 </html>
