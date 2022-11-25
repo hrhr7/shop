@@ -1,12 +1,11 @@
 package com.shop.entity;
 
 import com.shop.constant.Role;
-import com.shop.dto.MemberFromDto;
+import com.shop.dto.MemberFormDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
 import javax.persistence.*;
 
 @Entity
@@ -25,17 +24,16 @@ public class Member {
     private String password;
     private String address;
 
-
     @Enumerated(EnumType.STRING) //db에 저장될 때 문자열로 저장
     private Role role;
 
-    public static Member createMember(MemberFromDto memberFromDto, PasswordEncoder passwordEncoder){
+    public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder){
         Member member = new Member();
-        member.setName(memberFromDto.getName());
-        member.setEmail(memberFromDto.getEmail());
-        member.setAddress(memberFromDto.getAddress());
+        member.setName(memberFormDto.getName());
+        member.setEmail(memberFormDto.getEmail());
+        member.setAddress(memberFormDto.getAddress());
 //        entity에 바로 값을 넣지 말고 암호화 이후에 값을 넣어줌
-        String password = passwordEncoder.encode(memberFromDto.getPassword());
+        String password = passwordEncoder.encode(memberFormDto.getPassword());
         member.setPassword(password);
         member.setRole(Role.USER);
         return member;

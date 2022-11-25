@@ -13,13 +13,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override //http 요청에 대한 보안을 설정(페이지 권한 설정, 로그인 페이지 설정)
     protected void configure(HttpSecurity http) throws Exception{
-
     }
 //    bean에 등록해야 의존성 주입을 받을 수 있음
-@Bean
-public PasswordEncoder passwordEncoder() {
+    @Bean
+    public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
-}
-
-
+    }
 }

@@ -51,5 +51,4 @@ public class ThymeleafExController {
     public String thymeleafExample07() {
         return "thymeleafEx/thymeleafEx07";
     }
-
 }
