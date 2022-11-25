@@ -14,7 +14,7 @@ public class MemberService {
 
     //    회원가입할때 중복회원인지 확인, 중복체크는 서비스에서 함=>하고 db 에 저장
     public Member saveMember(Member member){
-        validateDuplicateMember(member);
+        validateDuplicateMember(member); //중복회원인지 확인, 가입안되있으면 밑에 save
         return memberRepository.save(member);
     }
     private void validateDuplicateMember(Member member){
